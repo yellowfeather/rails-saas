@@ -6,9 +6,11 @@
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 </head>
-<body>
-
-<%= yield %>
-
+<body class="home">
+  <%= render 'layouts/navigation' %>
+  <article class="container">
+    <%= render 'layouts/messages' %>
+    <%= yield %>
+  </article>
 </body>
 </html>

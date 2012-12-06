@@ -1,5 +1,6 @@
 class TenantApplicationController < ApplicationController
   around_filter :scope_current_tenant
+  before_filter :authenticate_user!
 
   private
 
