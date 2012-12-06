@@ -1,0 +1,21 @@
+development:
+  adapter: postgresql
+  encoding: unicode
+  database: rails_multitenant_dev
+  username: rails_multitenant
+  pool: 5
+
+test: &test
+  adapter: postgresql
+  encoding: unicode
+  database: rails_multitenant_test
+  username: rails_multitenant
+  pool: 5
+
+production:
+  adapter: postgresql
+  encoding: unicode
+  database: rails_multitenant
+  username: rails_multitenant
+  pool: 5
+
