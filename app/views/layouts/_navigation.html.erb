@@ -2,13 +2,26 @@
   <div class="navbar-inner">
     <div class="container">
       <%= link_to "rails-multitenant", root_path, :class => 'brand' %>
+      <% if user_signed_in? %>
+        <ul class="nav">
+          <li><%= link_to('Products', products_path) %></li>
+        </ul>
+      <% else %>
+        <ul class="nav">
+          <li><%= link_to('Tour', tour_path) %></li>
+          <li><%= link_to('Pricing', pricing_path) %></li>
+          <li><%= link_to('Why?', why_path) %></li>
+          <li><%= link_to('Testimonials', testimonials_path) %></li>
+          <li><%= link_to('About', about_path) %></li>
+        </ul>
+      <% end %>
       <ul class="nav pull-right">
         <% if user_signed_in? %>
-          <li><%= link_to('Logout', destroy_user_session_path, :method=>'delete') %></li>
-          <li><%= link_to('Edit account', edit_user_registration_path) %></li>
           <% if current_user.has_role? :admin %>
             <%= link_to('Admin', users_path) %>
           <% end %>
+          <li><%= link_to('Edit account', edit_user_registration_path) %></li>
+          <li><%= link_to('Logout', destroy_user_session_path, :method=>'delete') %></li>
         <% else %>
           <li><%= link_to('Login', new_user_session_path) %></li>
           <li><%= link_to('Sign up', new_user_registration_path) %></li>

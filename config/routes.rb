@@ -1,7 +1,13 @@
 RailsMultitenant::Application.routes.draw do
   devise_for :users, :controllers => { :invitations => 'users/invitations' }
 
-  root :to => "home#index"
+  root :to => 'home#index'
+  get 'tour' => 'home#tour'
+  get 'pricing' => 'home#pricing'
+  get 'why' => 'home#why'
+  get 'testimonials' => 'home#testimonials'
+  get 'about' => 'home#about'
+
   resources :products
 
   # The priority is based upon order of creation:

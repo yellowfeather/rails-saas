@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-ruby "1.9.3"
+ruby '1.9.3'
 gem 'rails', '3.2.9'
 gem 'thin'
 gem 'pg'
@@ -23,11 +23,12 @@ end
 
 gem 'jquery-rails'
 
-gem "devise", ">= 2.1.0"
-gem "devise_invitable", ">= 1.0.1"
-gem "cancan", ">= 1.6.7"
-gem "rolify", ">= 3.1.0"
-gem "bootstrap-sass", "~> 2.2.1.1"
+gem 'devise', '>= 2.1.0'
+gem 'devise_invitable', '>= 1.0.1'
+gem 'cancan', '>= 1.6.7'
+gem 'rolify', '>= 3.1.0'
+gem 'bootstrap-sass', '~> 2.2.1.1'
+gem 'simple_form'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
