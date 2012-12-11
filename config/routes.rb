@@ -1,11 +1,5 @@
 RailsMultitenant::Application.routes.draw do
-  get "content/silver"
-
-  get "content/gold"
-
-  get "content/platinum"
-
-  devise_for :users, :controllers => { :invitations => 'users/invitations' }
+  devise_for :users, :controllers => { :invitations => 'users/invitations', :registrations => 'registrations' }
 
   root :to => 'home#index'
   get 'tour' => 'home#tour'
@@ -13,6 +7,10 @@ RailsMultitenant::Application.routes.draw do
   get 'why' => 'home#why'
   get 'testimonials' => 'home#testimonials'
   get 'about' => 'home#about'
+
+  get 'content/silver'
+  get 'content/gold'
+  get 'content/platinum'
 
   resources :products
 

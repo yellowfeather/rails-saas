@@ -10,6 +10,8 @@ class ApplicationController < ActionController::Base
   end
 
   def after_sign_in_path_for(user)
+    root_path unless user
+
     tenant = Tenant.find(user.tenant_id)
     'http://' + tenant.subdomain + '.rails-multitenant.dev'
   end
