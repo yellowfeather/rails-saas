@@ -9,5 +9,10 @@ class ApplicationController < ActionController::Base
     Tenant.find_by_subdomain! request.subdomain
   end
 
+  def after_sign_in_path_for(user)
+    tenant = Tenant.find(user.tenant_id)
+    'http://' + tenant.subdomain + '.rails-multitenant.dev'
+  end
+
   helper_method :current_tenant
 end
