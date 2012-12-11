@@ -1,4 +1,10 @@
 RailsMultitenant::Application.routes.draw do
+  get "content/silver"
+
+  get "content/gold"
+
+  get "content/platinum"
+
   devise_for :users, :controllers => { :invitations => 'users/invitations' }
 
   root :to => 'home#index'
