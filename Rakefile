@@ -4,4 +4,4 @@
 
 require File.expand_path('../config/application', __FILE__)
 
-RailsMultitenant::Application.load_tasks
+RailsSaas::Application.load_tasks
