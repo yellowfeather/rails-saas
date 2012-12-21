@@ -13,7 +13,7 @@ class ApplicationController < ActionController::Base
     return root_path unless user && user.tenant_id
 
     tenant = Tenant.find(user.tenant_id)
-    'http://' + tenant.subdomain + '.rails-saas.dev'
+    "#{request.protocol}#{tenant.subdomain}.#{request.host_with_port}"
   end
 
   helper_method :current_tenant
