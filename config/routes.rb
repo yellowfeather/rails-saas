@@ -1,4 +1,4 @@
-RailsMultitenant::Application.routes.draw do
+RailsSaas::Application.routes.draw do
   devise_for :users, :controllers => { :invitations => 'users/invitations', :registrations => 'registrations' }
 
   root :to => 'home#index'
