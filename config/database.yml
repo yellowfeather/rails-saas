@@ -19,3 +19,6 @@ production:
   username: rails_saas
   pool: 5
 
+
+cucumber:
+  <<: *test
