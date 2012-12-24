@@ -30,6 +30,20 @@ gem 'rolify', '>= 3.1.0'
 gem 'bootstrap-sass', '~> 2.2.1.1'
 gem 'simple_form'
 
+group :test, :development do
+  gem 'rspec-rails'
+end
+
+group :test do
+  gem 'capybara'
+  gem 'cucumber-rails'
+  gem 'database_cleaner'
+  gem 'email_spec'
+  gem 'factory_girl'
+  gem 'launchy'
+  gem 'rack-test'
+end
+
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 
