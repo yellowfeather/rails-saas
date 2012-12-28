@@ -11,13 +11,24 @@ World(SigningInSteps)
 
 Given /^a registered user$/ do
   @tenant = Tenant.create!(:name => 'Test', :subdomain => 'test')
-  @user = User.new(:email => 'test@example.com', :password => 'password', :tenant_id => @tenant.id)
+  @user = User.new(:email => 'example@example.com', :password => 'password', :tenant_id => @tenant.id)
   @user.skip_confirmation!
   @user.save!
 end
 
 When /^he signs in$/ do
   SignIn(@user.email, @user.password)
+end
+
+When /^he confirms the account $/ do
+  unread_emails_for(current_email_address).size.should == 1
+
+  # this call will store the email and you can access it with current_email
+  open_last_email_for(last_email_address)
+  current_email.should have_subject(/Account confirmation/)
+
+  click_email_link_matching /confirm/
+  page.should have_content("Confirm your new account")
 end
 
 Then /^he should see "(.*?)"$/ do |regexp|
