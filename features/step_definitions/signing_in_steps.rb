@@ -10,10 +10,7 @@ end
 World(SigningInSteps)
 
 Given /^a registered user$/ do
-  @tenant = Tenant.create!(:name => 'Test', :subdomain => 'test')
-  @user = User.new(:email => 'example@example.com', :password => 'password', :tenant_id => @tenant.id)
-  @user.skip_confirmation!
-  @user.save!
+  @user = CreateRegisteredUser('Test', 'test', 'example@example.com', 'password')
 end
 
 When /^he signs in$/ do
