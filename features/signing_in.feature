@@ -7,3 +7,4 @@ Feature: Signing in
     Given a registered user
     When he signs in
     Then he should see "Signed in successfully."
+    And he should be redirected to his account subdomain

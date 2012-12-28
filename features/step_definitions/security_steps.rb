@@ -4,7 +4,7 @@ Given /^two accounts$/ do
 end
 
 Then /^he is unable to access the other account$/ do
-  visit 'http://test2.rails-saas.dev/products'
+  visit 'http://test2.example.com/products'
   page.should have_content("You need to sign in or sign up before continuing.")
 end
 

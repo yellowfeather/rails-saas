@@ -38,3 +38,6 @@ Then /^he should see "(.*?)"$/ do |regexp|
   end
 end
 
+Then /^he should be redirected to his account subdomain$/ do
+  current_url.should == "http://#{@tenant.subdomain}.example.com/"
+end
