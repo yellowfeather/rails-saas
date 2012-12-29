@@ -1,15 +1,12 @@
 <h2>Sign up</h2>
-<%= simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => {:class => 'card_form form-vertical' }) do |f| %>
+<%= simple_form_for(@signup, :url => user_registration_path, :html => {:class => 'card_form form-vertical' }) do |f| %>
   <h3><%= @plan.titleize if @plan %> Subscription Plan</h3>
-  <%= hidden_field_tag 'plan', @plan %>
   <%= f.error_notification %>
-  <%= display_base_errors resource %>
+  <%= display_base_errors @signup %>
 
-  <div class="input account_name required">
-    <label class="account_name required" for="account_name"><abbr title="required">*</abbr> Account name</label>
-    <input class="string account_name required" id="account_name" maxlength="255" name="account_name" required="required" size="50" type="text" value="">
-  </div>
-
+  <%= f.input :plan, :as => :hidden %>
+  <%= f.input :name, :label => 'Company Name', :required => true %>
+  <%= f.input :subdomain, :label => 'URL', :required => true %>
   <%= f.input :email, :required => true %>
   <%= f.input :password, :required => true %>
   <%= f.input :password_confirmation, :required => true %>

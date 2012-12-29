@@ -9,10 +9,6 @@ end
 
 World(SigningInSteps)
 
-Given /^a registered user$/ do
-  @user = CreateRegisteredUser('Test', 'test', 'example@example.com', 'password')
-end
-
 When /^he signs in$/ do
   SignIn(@user.email, @user.password)
 end

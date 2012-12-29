@@ -1,21 +1,19 @@
 module SigningUpSteps
-  def SignUp(plan, account, email, password)
+  def SignUp(plan, name, subdomain, email, password)
     visit '/users/sign_up?plan=' + plan
-    fill_in 'Account', :with => account
+    fill_in 'Company Name', :with => name
+    fill_in 'URL', :with => subdomain
     fill_in 'Email', :with => email
-    fill_in 'user_password', :with => password
-    fill_in 'user_password_confirmation', :with => password
+    fill_in 'forms_signup_password', :with => password
+    fill_in 'Password confirmation', :with => password
     click_button 'Sign up'
   end
 end
 
 World(SigningUpSteps)
 
-Given /^a new, unregistered user$/ do
-end
-
 When /^he signs up$/ do
-  SignUp('silver', 'test', 'example@example.com', 'password')
+  SignUp('silver', 'Test', 'test', 'example@example.com', 'password')
 end
 
 When /^he confirms the account$/ do

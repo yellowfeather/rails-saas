@@ -17,3 +17,9 @@ Feature: Signing up
     When he signs up
     And he confirms the account
     Then he should see "Your account was successfully confirmed"
+
+  Scenario: Signing up with an existing subdaomin
+    Given a registered user
+    And a new, unregistered user
+    When he signs up
+    Then he should see "has already been taken"

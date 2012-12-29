@@ -1,3 +1,10 @@
+Given /^a new, unregistered user$/ do
+end
+
+Given /^a registered user$/ do
+  @user = CreateRegisteredUser('Test', 'test', 'example@example.com', 'password')
+end
+
 Given /^two accounts$/ do
   @user = CreateRegisteredUser('Test1', 'test1', 'test1@example.com', 'password')
   @user2 = CreateRegisteredUser('Test2', 'test2', 'test2@example.com', 'password')
