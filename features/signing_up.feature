@@ -18,7 +18,7 @@ Feature: Signing up
     And he confirms the account
     Then he should see "Your account was successfully confirmed"
 
-  Scenario: Signing up with an existing subdaomin
+  Scenario: Cannot sign up with an existing subdaomin
     Given a registered user
     And a new, unregistered user
     When he signs up
