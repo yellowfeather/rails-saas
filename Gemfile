@@ -29,6 +29,8 @@ gem 'cancan', '>= 1.6.7'
 gem 'rolify', '>= 3.1.0'
 gem 'bootstrap-sass', '~> 2.2.1.1'
 gem 'simple_form'
+gem 'rocket_pants'
+gem 'kaminari'
 
 group :test, :development do
   gem 'rspec-rails'

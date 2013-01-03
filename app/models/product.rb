@@ -1,4 +1,5 @@
 class Product < ActiveRecord::Base
+  include RocketPants::Cacheable
   resourcify
   attr_accessible :description, :name, :identifier, :quantity
 

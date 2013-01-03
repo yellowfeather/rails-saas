@@ -1,6 +1,12 @@
 RailsSaas::Application.routes.draw do
   devise_for :users, :controllers => { :invitations => 'users/invitations', :registrations => 'registrations' }
 
+  namespace :api do
+    api :version => 1 do
+      resources :products
+    end
+  end
+
   root :to => 'home#index'
   get 'tour' => 'home#tour'
   get 'pricing' => 'home#pricing'
