@@ -18,6 +18,10 @@ Doorkeeper.configure do
   #   Admin.find_by_id(session[:admin_id]) || redirect_to(new_admin_session_url)
   # end
 
+  admin_authenticator do |routes|
+    (current_user && current_user.has_role?(:admin)) || redirect_to(new_user_session_path)
+  end
+
   resource_owner_from_credentials do |routes|
     User.authenticate!(params[:username], params[:password])
   end
