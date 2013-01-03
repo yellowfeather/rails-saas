@@ -12,4 +12,5 @@ tenant2 = Tenant.create! :name => 'Bacon', :subdomain => 'bacon'
 user1 = User.create! :tenant_id => tenant1.id, :email => 'cheese@example.com', :password => 'please', :password_confirmation => 'please', :confirmed_at => Time.now.utc
 user2 = User.create! :tenant_id => tenant2.id, :email => 'bacon@example.com', :password => 'please', :password_confirmation => 'please', :confirmed_at => Time.now.utc
 
+Doorkeeper::Application.create! :name => "iOS Client", :redirect_uri => "urn:ietf:wg:oauth:2.0:oob"
 
