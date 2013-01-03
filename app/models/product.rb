@@ -1,6 +1,6 @@
 class Product < ActiveRecord::Base
   resourcify
-  attr_accessible :description, :name, :quantity
+  attr_accessible :description, :name, :identifier, :quantity
 
   default_scope { where(tenant_id: Tenant.current_id) if Tenant.current_id }
 end

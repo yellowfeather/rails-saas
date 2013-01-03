@@ -2,6 +2,7 @@
 
 <table class="table table-condensed table-striped">
   <tr>
+    <th>Identifier</th>
     <th>Name</th>
     <th>Description</th>
     <th>Quantity</th>
@@ -12,6 +13,7 @@
 
 <% @products.each do |product| %>
   <tr>
+    <td><%= product.identifier %></td>
     <td><%= product.name %></td>
     <td><%= product.description %></td>
     <td><%= product.quantity %></td>
