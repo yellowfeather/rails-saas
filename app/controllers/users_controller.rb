@@ -1,6 +1,7 @@
-class UsersController < ApplicationController
+class UsersController < TenantApplicationController
+
   def index
-    @users = User.all
+    @users = User.page(params[:page])
 
     respond_to do |format|
       format.html # index.html.erb

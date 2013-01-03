@@ -5,6 +5,9 @@
       <% if user_signed_in? %>
         <ul class="nav">
           <li><%= link_to('Products', products_path) %></li>
+          <% if current_user.has_role? :admin %>
+            <li><%= link_to('Users', users_path) %></li>
+          <% end %>
         </ul>
       <% else %>
         <ul class="nav">
@@ -17,9 +20,6 @@
       <% end %>
       <ul class="nav pull-right">
         <% if user_signed_in? %>
-          <% if current_user.has_role? :admin %>
-            <%= link_to('Admin', users_path) %>
-          <% end %>
           <li><%= link_to('Edit account', edit_user_registration_path) %></li>
           <li><%= link_to('Logout', destroy_user_session_path, :method=>'delete') %></li>
         <% else %>
