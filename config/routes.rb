@@ -1,4 +1,6 @@
 RailsSaas::Application.routes.draw do
+  use_doorkeeper
+
   devise_for :users, :controllers => { :invitations => 'users/invitations', :registrations => 'registrations' }
 
   namespace :api do

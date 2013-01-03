@@ -31,6 +31,8 @@ gem 'bootstrap-sass', '~> 2.2.1.1'
 gem 'simple_form'
 gem 'rocket_pants'
 gem 'kaminari'
+gem 'doorkeeper'
+gem 'oauth2'
 
 group :test, :development do
   gem 'rspec-rails'
