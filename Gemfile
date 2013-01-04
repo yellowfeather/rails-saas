@@ -33,6 +33,8 @@ gem 'rocket_pants'
 gem 'kaminari'
 gem 'doorkeeper'
 gem 'oauth2'
+gem 'memcachier'
+gem 'dalli'
 
 group :test, :development do
   gem 'rspec-rails'

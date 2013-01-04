@@ -65,6 +65,7 @@ GEM
       cucumber (>= 1.1.8)
       nokogiri (>= 1.5.0)
     daemons (1.1.9)
+    dalli (2.6.0)
     database_cleaner (0.9.1)
     devise (2.1.2)
       bcrypt-ruby (~> 3.0)
@@ -118,6 +119,7 @@ GEM
       i18n (>= 0.4.0)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
+    memcachier (0.0.2)
     mime-types (1.19)
     moneta (0.7.3)
     multi_json (1.4.0)
@@ -226,6 +228,7 @@ DEPENDENCIES
   capybara
   coffee-rails (~> 3.2.1)
   cucumber-rails
+  dalli
   database_cleaner
   devise (>= 2.1.0)
   devise_invitable (>= 1.0.1)
@@ -235,6 +238,7 @@ DEPENDENCIES
   jquery-rails
   kaminari
   launchy
+  memcachier
   oauth2
   pg
   rack-test
