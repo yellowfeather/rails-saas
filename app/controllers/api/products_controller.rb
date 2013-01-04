@@ -1,7 +1,7 @@
 module Api
   class ProductsController < ApiController
     version 1
-    doorkeeper_for :all
+    #doorkeeper_for :all
 
     caches :index, :show, :caches_for => 5.minutes
 
