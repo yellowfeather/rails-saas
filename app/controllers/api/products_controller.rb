@@ -3,7 +3,7 @@ module Api
     version 1
     doorkeeper_for :all
 
-    caches :index, :show, :caches_for => 5.minutes
+    #caches :index, :show, :caches_for => 5.minutes
 
     def index
       expose Product.page(params[:page])
