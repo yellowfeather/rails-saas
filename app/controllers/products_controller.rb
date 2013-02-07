@@ -2,7 +2,7 @@ class ProductsController < TenantApplicationController
   # GET /products
   # GET /products.json
   def index
-    @products = Product.page(params[:page])
+    @products = Product.order('name').page(params[:page])
 
     respond_to do |format|
       format.html # index.html.erb
