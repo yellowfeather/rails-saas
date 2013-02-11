@@ -6,6 +6,7 @@ RailsSaas::Application.routes.draw do
   namespace :api do
     api :version => 1 do
       resources :products
+      resources :sync, :only => [:index]
     end
   end
 
