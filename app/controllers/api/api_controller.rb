@@ -22,10 +22,10 @@ module Api
       Tenant.current_id = nil
     end
 
-    def paginated_collection(name, object, options = {})
+    def paginated_collection(object, options = {})
       options = options.reverse_merge(:compact => true)
       meta = expose_metadata metadata_for(object, options, :paginated, false)
-      { name => normalise_object(object, options) }.merge(meta)
+      { object.table_name => normalise_object(object, options) }.merge(meta)
     end
   end
 end

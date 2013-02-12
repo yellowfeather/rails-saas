@@ -6,11 +6,12 @@ module Api
     #caches :index, :show, :caches_for => 5.minutes
 
     def index
-      resource [ created, updated, deleted ]
+      h = { :created => created, :updated => updated, :deleted => deleted }
+      resource h
     end
 
     def created
-      paginated_collection :created, Product
+      paginated_collection Product
         .where('created_at >= ?', params[:last_synced])
         .order('created_at ASC')
         .page(params[:page])
@@ -18,7 +19,7 @@ module Api
     end
 
     def updated
-      paginated_collection :updated, Product
+      paginated_collection Product
         .where('created_at < ?', params[:last_synced])
         .where('updated_at >= ?', params[:last_synced])
         .order('updated_at ASC')
@@ -28,7 +29,7 @@ module Api
 
     def deleted
       # todo: get deleted products
-      paginated_collection :deleted, Product
+      paginated_collection Product
         .where('created_at is null')
         .page(params[:page])
         .per(DEFAULT_PAGE_SIZE)
