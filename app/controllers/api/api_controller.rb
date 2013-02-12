@@ -25,7 +25,7 @@ module Api
     def paginated_collection(object, options = {})
       options = options.reverse_merge(:compact => true)
       meta = expose_metadata metadata_for(object, options, :paginated, false)
-      { object.table_name => normalise_object(object, options) }.merge(meta)
+      { object.table_name => normalise_object(object, options) }.merge(meta) unless object.count == 0
     end
   end
 end
