@@ -28,9 +28,9 @@ module Api
     end
 
     def deleted
-      # todo: get deleted products
-      paginated_collection Product
-        .where('created_at is null')
+      paginated_collection Tombstone
+        .where('created_at >= ?', params[:last_synced])
+        .order('created_at ASC')
         .page(params[:page])
         .per(DEFAULT_PAGE_SIZE)
     end

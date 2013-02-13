@@ -1,5 +1,6 @@
 class Product < ActiveRecord::Base
   include RocketPants::Cacheable
+  include Extensions::Syncable
   resourcify
   attr_accessible :description, :name, :identifier, :quantity
 

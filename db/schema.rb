@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130103180513) do
+ActiveRecord::Schema.define(:version => 20130213220031) do
 
   create_table "oauth_access_grants", :force => true do |t|
     t.integer  "resource_owner_id", :null => false
@@ -60,6 +60,7 @@ ActiveRecord::Schema.define(:version => 20130103180513) do
     t.datetime "updated_at",  :null => false
     t.integer  "tenant_id"
     t.string   "identifier"
+    t.uuid     "sync_id",     :null => false
   end
 
   add_index "products", ["tenant_id"], :name => "index_products_on_tenant_id"
@@ -83,6 +84,13 @@ ActiveRecord::Schema.define(:version => 20130103180513) do
   end
 
   add_index "tenants", ["subdomain"], :name => "index_tenants_on_subdomain", :unique => true
+
+  create_table "tombstones", :force => true do |t|
+    t.string   "klass",      :null => false
+    t.uuid     "sync_id",    :null => false
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "users", :force => true do |t|
     t.string   "email",                                :default => "", :null => false

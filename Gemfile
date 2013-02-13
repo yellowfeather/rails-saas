@@ -4,6 +4,7 @@ ruby '1.9.3'
 gem 'rails', '3.2.12'
 gem 'thin'
 gem 'pg'
+gem 'postgres_ext'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
@@ -35,6 +36,7 @@ gem 'doorkeeper'
 gem 'oauth2'
 gem 'memcachier'
 gem 'dalli'
+gem 'uuid'
 
 group :test, :development do
   gem 'rspec-rails'
