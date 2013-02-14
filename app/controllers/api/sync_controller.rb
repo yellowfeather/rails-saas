@@ -6,7 +6,12 @@ module Api
     #caches :index, :show, :caches_for => 5.minutes
 
     def index
-      h = { :created => created, :updated => updated, :deleted => deleted }
+      h = {
+            :last_synced => Time.now.utc,
+            :created => created,
+            :updated => updated,
+            :deleted => deleted
+          }
       resource h
     end
 
