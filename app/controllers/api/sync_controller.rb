@@ -6,6 +6,10 @@ module Api
     #caches :index, :show, :caches_for => 5.minutes
 
     def index
+      create
+      update
+      delete
+
       h = {
             :last_synced => Time.now.utc,
             :created => created,
@@ -13,6 +17,43 @@ module Api
             :deleted => deleted
           }
       resource h
+    end
+
+    def create
+      if !params.has_key?(:created)
+        return;
+      end
+
+      entities = params[:created]
+      products = entities[:products]
+      products.each do |product|
+        Product.create(product)
+      end
+    end
+
+    def update
+      if !params.has_key?(:updated)
+        return;
+      end
+
+      entities = params[:updated]
+      products = entities[:products]
+      products.each do |product|
+        p = Product.find_by_sync_id(product[:sync_id])
+        p.update_attributes(product) unless p.nil?
+      end
+    end
+
+    def delete
+      if !params.has_key?(:deleted)
+        return;
+      end
+
+      entities = params[:deleted]
+      entities.each do |entity|
+        p = Product.find_by_sync_id(entity[:sync_id])
+        p.destroy unless p.nil?
+      end
     end
 
     def created

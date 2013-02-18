@@ -6,7 +6,7 @@ module Extensions
 
     included do |klass|
       klass.before_create do
-        self.sync_id = UUID.generate
+        self.sync_id = UUID.generate if self.sync_id.nil?
       end
 
       klass.before_destroy do
